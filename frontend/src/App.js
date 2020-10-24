@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import CovidTracker from './screen/CovidTracker';
+import Layout from './screen/Layout';
+/***********************/
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
+//import HomeScreen from './screen/HomeScreen';
+//import ProductScreen from './screen/ProductScreen';
+//import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// ####################################################################################################################################
+   class App extends Component {
+      render() {
+         const test = (<h1> Not Found </h1>);
+         
+         return (
+            <BrowserRouter>
+               <div id="page-loader" className="fade show"><span className="spinner"></span></div>
+               <Switch>
+                  <Route path="/" exact={true} component={() => <Layout title={`Dashboard`} />} />
+                  <Route path="/covid-tracker" exact={true} component={() => <CovidTracker title={`CovidTracker`} />} />
+                  <Route>{test}</Route>
+               </Switch>
+            </BrowserRouter>
+         )
+         
+      }
+   }
+   
+// ####################################################################################################################################
+   export default App
 
-export default App;
+// ####################################################################################################################################

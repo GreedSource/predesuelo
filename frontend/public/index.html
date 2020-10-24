@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -25,8 +24,23 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/assets/plugins/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/assets/plugins/font-awesome/5.0/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/assets/plugins/animate/animate.min.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/assets/css/default/style.min.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/assets/css/default/style-responsive.min.css" rel="stylesheet" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+    
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+    
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="%PUBLIC_URL%/assets/plugins/pace/pace.min.js"></script>
   </head>
-  <body>
+  <body className="flat-black">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +53,27 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="%PUBLIC_URL%/assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="%PUBLIC_URL%/assets/crossbrowserjs/html5shiv.js"></script>
+      <script src="%PUBLIC_URL%/assets/crossbrowserjs/respond.min.js"></script>
+      <script src="%PUBLIC_URL%/assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="%PUBLIC_URL%/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/plugins/js-cookie/js.cookie.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/apps.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    
+    <script>
+      $(document).ready(function() {
+        App.init();
+      });
+    </script>
   </body>
 </html>
