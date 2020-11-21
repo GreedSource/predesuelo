@@ -4,7 +4,8 @@ import {Cards, Chart, CountryPicker} from '../components'
 import styles from '../App.modules.css'
 import {fetchData} from '../api'
 import coronaImage from '../images/covid19.png'
-
+import Cookies from 'universal-cookie'
+const cookies = new Cookies()
 
 export class CovidTracker extends Component {
     
@@ -19,6 +20,9 @@ export class CovidTracker extends Component {
     }
 
     handleCountryChange = async (country) => {
+        if (cookies.get('id')){
+            window.location.href = './dashboard'
+        }
         const fetchedData = await fetchData(country);
         this.setState({data: fetchedData, country: country})
     }

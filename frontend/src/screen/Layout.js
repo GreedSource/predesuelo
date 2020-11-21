@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
-import ThemePanel from './ThemePanel';
 
 
 export class Layout extends Component {
@@ -21,7 +20,7 @@ export class Layout extends Component {
                         </div>
                     </div>
                 </div>
-                <ThemePanel/>
+                
                 <a href="#!" className="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i className="fa fa-angle-up"></i></a>
             </div>
             
