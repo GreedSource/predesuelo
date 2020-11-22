@@ -18,7 +18,7 @@
 
                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)}>
                   <CardContent>
-                  <Typography color="textSecondary" gutterBottom>Infected</Typography>
+                  <Typography color="textSecondary" gutterBottom>Infectados</Typography>
                   <Typography variant="h5">
 
                      <CountUp 
@@ -30,13 +30,13 @@
 
                   </Typography>
                   <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                  <Typography variant="body2">Number of active cases of covid-19</Typography>
+                  <Typography variant="body2">Número de casos activos de covid-19</Typography>
                   </CardContent>
                </Grid>
 
                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
                   <CardContent>
-                  <Typography color="textSecondary" gutterBottom>Recovered</Typography>
+                  <Typography color="textSecondary" gutterBottom>Recuperados</Typography>
                   <Typography variant="h5">
 
                      <CountUp 
@@ -48,13 +48,13 @@
 
                   </Typography>
                   <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                  <Typography variant="body2">Number of recoveries from covid-19</Typography>
+                  <Typography variant="body2">Número de recuperados de covid-19</Typography>
                   </CardContent>
                </Grid>
 
                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.deaths)}>
                   <CardContent>
-                  <Typography color="textSecondary" gutterBottom>Deaths</Typography>
+                  <Typography color="textSecondary" gutterBottom>Muertes</Typography>
                   <Typography variant="h5">
 
                      <CountUp 
@@ -66,7 +66,7 @@
 
                   </Typography>
                   <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                  <Typography variant="body2">Number of deaths caused by covid-19</Typography>
+                  <Typography variant="body2">Número de muertes causadas por covid-19</Typography>
                   </CardContent>
                </Grid>
 

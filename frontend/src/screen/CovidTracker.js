@@ -15,14 +15,14 @@ export class CovidTracker extends Component {
     }
     
     async componentDidMount(){
+        if (!cookies.get('id')){
+            window.location.href = './'
+        }
         const fetchedData = await fetchData();
         this.setState({data: fetchedData})
     }
 
     handleCountryChange = async (country) => {
-        if (cookies.get('id')){
-            window.location.href = './dashboard'
-        }
         const fetchedData = await fetchData(country);
         this.setState({data: fetchedData, country: country})
     }

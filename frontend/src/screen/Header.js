@@ -16,7 +16,7 @@ export class Header extends Component {
         return (
 			<div id="header" className="header navbar-inverse">
 				<div className="navbar-header">
-					<a href="/" className="navbar-brand"><span className="navbar-logo" /> <b>Color</b> Admin</a>
+					<a href="/" className="navbar-brand"><span className="navbar-logo" /> <b>Prede</b>suelo</a>
 					<button type="button" className="navbar-toggle" data-click="sidebar-toggled">
 					<span className="icon-bar" />
 					<span className="icon-bar" />

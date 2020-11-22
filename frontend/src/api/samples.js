@@ -1,29 +1,30 @@
 // ####################################################################################################################################
 import axios from 'axios'
+import Cookies from 'universal-cookie'
+
+const cookie = new Cookies()
 
 // ####################################################################################################################################
    //const url = 'http://localhost:3700/api/auth/'
-   const url = 'https://api-predesuelo.herokuapp.com/api/auth/'
+   const url = 'https://api-predesuelo.herokuapp.com/api/sample/'
 
 // ####################################################################################################################################
    export {
-      fetchData
+        fetchCrops
    }
 
 // ####################################################################################################################################
 
-   async function fetchData(form){ // ===============================================================================
-
+   async function fetchCrops(){ // ===============================================================================
+    
       try {
-         const {data} = await axios.post(`${url}login`, form)
-         const modifiedData = {
-            id:         data.id, 
-            name:       data.name,
-            username:   data.username, 
-            token:      data.token
-         }
+         const {data} = await axios.get(`${url}user`, {
+             headers: {
+                'Authorization' :  `Bearer ${cookie.get('token')}`
+             }
+         })
 
-         return modifiedData
+         return data.sample
       } catch (error) {
          console.log(error)
       }

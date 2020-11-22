@@ -17,7 +17,7 @@ class Login extends Component {
                 [e.target.name]: e.target.value
             }
         });
-        console.log(this.state)
+        //console.log(this.state)
     }
     IniciarSesion = async () => {
         const fetchedData = await fetchData(this.state.form);
@@ -53,9 +53,9 @@ class Login extends Component {
       <div className="news-feed">
         <div className="news-image" style={{backgroundImage: 'url(../assets/img/login-bg/login-bg-11.jpg)'}} />
         <div className="news-caption">
-          <h4 className="caption-title"><b>Color</b> Admin App</h4>
+          <h4 className="caption-title"><b>Prede</b>suelo App</h4>
           <p>
-            Download the Color Admin app for iPhone®, iPad®, and Android™. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Descarga la aplicación movil para enviar tus muestras de la forma más comoda.
           </p>
         </div>
       </div>
@@ -65,8 +65,8 @@ class Login extends Component {
         {/* begin login-header */}
         <div className="login-header">
           <div className="brand">
-            <span className="logo" /> <b>Color</b> Admin
-            <small>responsive bootstrap 3 admin template</small>
+            <span className="logo" /> <b>Prede</b>suelo
+            <small>Sistema de prevención del deterioro del suelo</small>
           </div>
           <div className="icon">
             <i className="fa fa-sign-in" />
@@ -83,10 +83,10 @@ class Login extends Component {
             </div>
             
             <div className="login-buttons">
-              <button type="submit" className="btn btn-success btn-block btn-lg" onClick={this.IniciarSesion}>Sign me in</button>
+              <button type="submit" className="btn btn-success btn-block btn-lg" onClick={this.IniciarSesion}>Iniciar sesión</button>
             </div>
             <div className="m-t-20 m-b-40 p-b-40 text-inverse">
-              Not a member yet? Click <a href="register_v3.html" className="text-success">here</a> to register.
+              ¿Aún no tienes una cuenta? Presiona <a href="register_v3.html" className="text-success">aquí</a> para registrarte.
             </div>
             <hr />
             <p className="text-center text-grey-darker">
