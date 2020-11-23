@@ -19,7 +19,6 @@ export class Dashboard extends Component {
         }
         const fetchedCrops = await fetchCrops();
         this.setState({data: fetchedCrops})
-
     }
 
     handleCropChange = async (_id) => {

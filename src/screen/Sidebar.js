@@ -18,30 +18,33 @@ export class Sidebar extends Component {
 								<img src="./assets/img/user/user-13.jpg" alt="" />
 							</div>
 							<div className="info">
-								<b className="caret pull-right"></b>
 								{cookie.get('name')}
 							</div>
 						</a>
 					</li>
-					<li>
-						<ul className="nav nav-profile">
-                            <li><a href="#!"><i className="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="#!"><i className="fa fa-pencil-alt"></i> Send Feedback</a></li>
-                            <li><a href="#!"><i className="fa fa-question-circle"></i> Helps</a></li>
-                        </ul>
-					</li>
+					
 					
 				</ul>
 				<ul className="nav">
 					<li className="nav-header">Navigation</li>
-					<li className="has-sub active">
+					<li className="has-sub">
 						<a href="#!">
 					        <b className="caret"></b>
 						    <i className="fa fa-th-large"></i>
 						    <span>Dashboard</span>
 					    </a>
 						<ul className="sub-menu">
-						    <li className="active"><a href="/dashboard">Dashboard</a></li>
+						    <li><a href="/dashboard">Dashboard</a></li>
+						</ul>
+					</li>
+					<li className="has-sub">
+						<a href="#!">
+					        <b className="caret"></b>
+						    <i className="fa fa-th-large"></i>
+						    <span>Sample</span>
+					    </a>
+						<ul className="sub-menu">
+						    <li><a href="/sample">Lista</a></li>
 						</ul>
 					</li>
 					<li><a href="covid-tracker"><i className="fa fa-calendar"></i> <span>CovidTracker</span></a></li>

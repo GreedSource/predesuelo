@@ -19,7 +19,7 @@
 
       const lineChart  = (
 
-         dailyData.length
+         dailyData
          ? (
                <Line 
                   data = {{

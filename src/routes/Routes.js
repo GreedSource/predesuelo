@@ -3,9 +3,10 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 
 // screens
-import Login from '../screen/Login'
+import Login from '../screen/auth/Login'
 import Dashboard from '../screen/Dashboard'
 import CovidTracker from '../screen/CovidTracker'
+import {List} from '../screen/sample'
 
 class Routes extends Component {
     render() {
@@ -18,6 +19,7 @@ class Routes extends Component {
                     <Route exact path="/" component={ Login } />
                     <Route path="/dashboard" exact={true} component={() => <Dashboard title={`Dashboard`} />} />
                     <Route path="/covid-tracker" exact={true} component={() => <CovidTracker title={`CovidTracker`} />} />
+                    <Route path="/sample" exact={true} component={List} />
                     
                     <Route>{ error_404 }</Route>
                 </Switch>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {fetchData} from '../api/login'
+import {fetchData} from '../../api/login'
 import Cookies from 'universal-cookie'
 const cookies = new Cookies()
 class Login extends Component {
@@ -55,7 +55,7 @@ class Login extends Component {
         <div className="news-caption">
           <h4 className="caption-title"><b>Prede</b>suelo App</h4>
           <p>
-            Descarga la aplicación movil para enviar tus muestras de la forma más comoda.
+            Descarga la aplicación movil para enviar tus muestras de forma más comoda.
           </p>
         </div>
       </div>
