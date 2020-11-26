@@ -60,7 +60,7 @@ export default class Sample extends Component {
     handleConfirmDialog = async (_id) => {
         await swal({
             title: "¿Estás seguro?",
-            text: "Una vez eliminada, la muestra no sé podrá recuperar",
+            text: "Una vez eliminada, la muestra no se podrá recuperar",
             icon: "warning",
             buttons: true,
             dangerMode: true,

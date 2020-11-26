@@ -49,7 +49,7 @@ export default class Fertilizer extends Component {
     handleAlertDialog = (action) => {
         swal({
             title: 'Exito',
-            text: `Ha ${action} la muestra exitosamente`,
+            text: `Ha ${action} el fertilizante exitosamente`,
             icon: 'success',
             timer: 2000, 
             buttons: false
@@ -59,7 +59,7 @@ export default class Fertilizer extends Component {
     handleConfirmDialog = async (_id) => {
         await swal({
             title: "¿Estás seguro?",
-            text: "Una vez eliminada, la muestra no sé podrá recuperar",
+            text: "Una vez eliminado, el fertilizante no se podrá recuperar",
             icon: "warning",
             buttons: true,
             dangerMode: true,

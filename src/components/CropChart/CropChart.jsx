@@ -35,7 +35,7 @@ function getRandomColor() {
                   }}
                   options={{
                      legend: {display: true},
-                     title: {display: true, text:`Datos actuales de muesta`},
+                     title: {display: true, text:`Gráficos de muestras`},
                   }}
                />
             ) : null

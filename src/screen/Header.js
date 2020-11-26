@@ -31,10 +31,6 @@ export class Header extends Component {
 						<span className="d-none d-md-inline">{cookies.get('name')}</span> <b className="caret" />
 					</a>
 					<div className="dropdown-menu dropdown-menu-right">
-						<a href="#!" className="dropdown-item">Edit Profile</a>
-						<a href="#!" className="dropdown-item"><span className="badge badge-danger pull-right">2</span> Inbox</a>
-						<a href="#!" className="dropdown-item">Calendar</a>
-						<a href="#!" className="dropdown-item">Setting</a>
 						<div className="dropdown-divider" />
 						<a href="#!" className="dropdown-item" onClick={this.logout}>Log Out</a>
 					</div>

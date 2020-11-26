@@ -49,7 +49,7 @@ export default class Crops extends Component {
     handleAlertDialog = (action) => {
         swal({
             title: 'Exito',
-            text: `Ha ${action} la muestra exitosamente`,
+            text: `Ha ${action} el cultivo exitosamente`,
             icon: 'success',
             timer: 2000, 
             buttons: false
@@ -59,7 +59,7 @@ export default class Crops extends Component {
     handleConfirmDialog = async (_id) => {
         await swal({
             title: "¿Estás seguro?",
-            text: "Una vez eliminada, la muestra no sé podrá recuperar",
+            text: "Una vez eliminado, el cultivo no se podrá recuperar",
             icon: "warning",
             buttons: true,
             dangerMode: true,
