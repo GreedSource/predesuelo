@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../Layout';
 import Cookies from 'universal-cookie'
-import {fetchData, insertData, updateData, deleteRecord } from '../../api/fertilizer'
+import {fetchCrops as fetchData, insertData, updateData, deleteRecord } from '../../api/crop'
 import {insertData as insertNutrient} from '../../api/nutrient'
 import StickyHeadTable from './tb'
 import SimpleModal from './modal'
@@ -10,9 +10,9 @@ import swal from 'sweetalert'
 const cookie = new Cookies()
 
 
-export default class Fertilizer extends Component {
+export default class Crops extends Component {
     state = {
-        fertilizers: [],
+        crops: [],
         _id: '',
         form: {
             name : '',
@@ -104,18 +104,18 @@ export default class Fertilizer extends Component {
     }
 
     handleEdit = async (_id) => {
-        const fertilizer = await this.state.fertilizers.find(i => i._id === _id)
-        if (fertilizer){
+        const crop = await this.state.crops.find(i => i._id === _id)
+        if (crop){
             const form = {
-                name: fertilizer.name, 
-                nitrogen: fertilizer.nutrient ? fertilizer.nutrient.nitrogen : null, 
-                phosphorus: fertilizer.nutrient ? fertilizer.nutrient.phosphorus : null, 
-                potassium: fertilizer.nutrient ? fertilizer.nutrient.potassium : null, 
-                sulfur: fertilizer.nutrient ? fertilizer.nutrient.sulfur : null, 
-                calcium: fertilizer.nutrient ? fertilizer.nutrient.calcium : null, 
-                magnesium: fertilizer.nutrient ? fertilizer.nutrient.magnesium : null,
+                name: crop.name, 
+                nitrogen: crop.nutrient ? crop.nutrient.nitrogen : null, 
+                phosphorus: crop.nutrient ? crop.nutrient.phosphorus : null, 
+                potassium: crop.nutrient ? crop.nutrient.potassium : null, 
+                sulfur: crop.nutrient ? crop.nutrient.sulfur : null, 
+                calcium: crop.nutrient ? crop.nutrient.calcium : null, 
+                magnesium: crop.nutrient ? crop.nutrient.magnesium : null,
             }
-            await this.setState({_id: fertilizer._id})
+            await this.setState({_id: crop._id})
             await this.setState({form: form})
             //console.log(this.state.form)
         }
@@ -141,12 +141,12 @@ export default class Fertilizer extends Component {
             window.location.href = './'
         }
         this.tableUpdate()
-        //console.log(fetchedfertilizers)
+        //console.log(fetchedCrops)
     }
 
     async tableUpdate(){
-        const fetchedfertilizers = await fetchData();
-        this.setState({fertilizers: fetchedfertilizers})
+        const fetchedCrops = await fetchData();
+        this.setState({crops: fetchedCrops})
     }
 
 
@@ -201,12 +201,12 @@ export default class Fertilizer extends Component {
             <div>
                 <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} open={this.state.open} handleClose={this.handleClose}/>
                 <SimpleButton handleOpen={this.handleOpen} />
-                <StickyHeadTable data={this.state.fertilizers} handleChange={this.handleChange} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
+                <StickyHeadTable data={this.state.crops} handleChange={this.handleChange} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
             </div>
         )
         return (
             <div>
-                <Layout component={view} title={`Fertilizers list`}></Layout>
+                <Layout component={view} title={`Crops list`}></Layout>
             </div>
         )
     }

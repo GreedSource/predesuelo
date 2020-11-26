@@ -9,6 +9,7 @@ export class Header extends Component {
 		cookies.remove('name')
 		cookies.remove('username')
 		cookies.remove('token')
+		cookies.remove('role')
 		window.location.href = '/'
 	}
 

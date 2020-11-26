@@ -8,6 +8,7 @@ import Dashboard from '../screen/Dashboard'
 import CovidTracker from '../screen/CovidTracker'
 import {Sample} from '../screen/sample'
 import {Fertilizer} from '../screen/fertilizer'
+import {Crops} from '../screen/crop'
 
 class Routes extends Component {
     render() {
@@ -22,6 +23,7 @@ class Routes extends Component {
                     <Route path="/covid-tracker" exact={true} component={() => <CovidTracker title={`CovidTracker`} />} />
                     <Route path="/sample" exact={true} component={Sample} />
                     <Route path="/fertilizer" exact={true} component={Fertilizer} />
+                    <Route path="/crop" exact={true} component={Crops} />
                     
                     <Route>{ error_404 }</Route>
                 </Switch>

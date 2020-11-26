@@ -26,7 +26,14 @@
                   }}
                   options={{
                      legend: {display: false},
-                     title: {display: true, text:`Datos actuales de muesta`}
+                     title: {display: true, text:`Datos actuales de muesta`},
+                     scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                   }}
                />
             ) : null

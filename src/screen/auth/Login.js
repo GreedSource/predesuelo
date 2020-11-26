@@ -27,6 +27,7 @@ class Login extends Component {
             cookies.set('name', fetchedData.name, {path:'/'})
             cookies.set('username', fetchedData.username, {path:'/'})
             cookies.set('token', fetchedData.token, {path:'/'})
+            cookies.set('role', fetchedData.role, {path:'/'})
             window.location.href = './dashboard'
         }else{
             console.log(0)

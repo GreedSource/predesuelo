@@ -20,7 +20,8 @@ import axios from 'axios'
             id:         data.id, 
             name:       data.name,
             username:   data.username, 
-            token:      data.token
+            token:      data.token,
+            role:       data.role ? data.role : null
          }
 
          return modifiedData
