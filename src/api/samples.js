@@ -10,12 +10,15 @@ const cookie = new Cookies()
 
 // ####################################################################################################################################
    export {
-        fetchCrops
+      fetchSamples,
+      insertData,
+      updateData,
+      deleteRecord
    }
 
 // ####################################################################################################################################
 
-   async function fetchCrops(){ // ===============================================================================
+   async function fetchSamples(){ // ===============================================================================
     
       try {
          const {data} = await axios.get(`${url}user`, {
@@ -25,6 +28,46 @@ const cookie = new Cookies()
          })
 
          return data.sample
+      } catch (error) {
+         console.log(error)
+      }
+   }
+
+   async function insertData(values){
+      try {
+         // Browserconsole.log(values)
+         const {data} = await axios.post(`${url}`, values, {
+            headers: {
+               'Authorization' :  `Bearer ${cookie.get('token')}`
+            }
+         })
+         return data._id
+      } catch (error) {
+         console.log(error)
+      }
+   }
+
+   async function updateData(values, _id){
+      try {
+         const {data} = await axios.put(`${url}${_id}`, values, {
+            headers: {
+               'Authorization' :  `Bearer ${cookie.get('token')}`
+            }
+         })
+         return data._id
+      } catch (error) {
+         console.log(error)
+      }
+   }
+
+   async function deleteRecord(_id){
+      try {
+         const {data} = await axios.delete(`${url}${_id}`, {
+            headers: {
+               'Authorization' :  `Bearer ${cookie.get('token')}`
+            }
+         })
+         return data._id
       } catch (error) {
          console.log(error)
       }

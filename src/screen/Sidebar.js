@@ -1,8 +1,7 @@
 import React, { Component} from 'react';
 import Cookies from 'universal-cookie'
-const cookie = new Cookies()
-//import {BrowserRouter, Route, Link } from 'react-router-dom';
 
+const cookie = new Cookies()
 export class Sidebar extends Component {
     render() {
         return (
@@ -27,6 +26,7 @@ export class Sidebar extends Component {
 				</ul>
 				<ul className="nav">
 					<li className="nav-header">Navigation</li>
+					
 					<li className="has-sub">
 						<a href="#!">
 					        <b className="caret"></b>
@@ -34,7 +34,7 @@ export class Sidebar extends Component {
 						    <span>Dashboard</span>
 					    </a>
 						<ul className="sub-menu">
-						    <li><a href="/dashboard">Dashboard</a></li>
+						    <li><a href='/dashboard'>Dashboard</a></li>
 						</ul>
 					</li>
 					<li className="has-sub">
@@ -47,7 +47,8 @@ export class Sidebar extends Component {
 						    <li><a href="/sample">Lista</a></li>
 						</ul>
 					</li>
-					<li><a href="covid-tracker"><i className="fa fa-calendar"></i> <span>CovidTracker</span></a></li>
+					<li><a href="covid-tracker"><i className="fa fa-calendar"></i> <span>CovidTracker</span></a></li>					
+					
 					<li><a href="#!" className="sidebar-minify-btn" data-click="sidebar-minify"><i className="fa fa-angle-double-left"></i></a></li>
 			        
 				</ul>
