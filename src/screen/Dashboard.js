@@ -10,7 +10,11 @@ export class Dashboard extends Component {
     
     state = {
         data: [],
-        datos: null
+        datos: {
+            doughnut: null,
+            bars: null
+        },
+        doughnut: null
     }
 
     async componentDidMount() {
@@ -19,10 +23,22 @@ export class Dashboard extends Component {
         }
         const fetchedCrops = await fetchSamples();
         this.setState({data: fetchedCrops})
+        this.handleCropDoughnut()
     }
 
     handleCropChange = async (_id) => {
-        this.setState({datos: this.state.data.find(crop => crop._id === _id)})
+        await this.setState({ datos: { ...this.state.datos, bars: this.state.data.find(crop => crop._id === _id)} });
+    }
+
+    handleCropDoughnut = async () => 
+    {
+        var matriz = {};
+        this.state.data.forEach((row) => { 
+            var name = row.crop.name;
+            matriz[name] = matriz[name] ? (matriz[name] + 1) : 1;
+        });
+        await this.setState({ datos: { ...this.state.datos, doughnut: matriz} });
+        //console.log(this.state.datos)
     }
 
     render() {
