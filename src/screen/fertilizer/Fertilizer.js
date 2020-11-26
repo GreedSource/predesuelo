@@ -137,8 +137,12 @@ export default class Fertilizer extends Component {
     }
 
     async componentDidMount() {
-        if (cookie.get('role') !== 'true'){
+        if (!cookie.get('id')){
             window.location.href = './'
+        }else{
+            if (cookie.get('role') !== 'true'){
+                window.location.href = './dashboard'
+            }
         }
         this.tableUpdate()
         //console.log(fetchedfertilizers)
