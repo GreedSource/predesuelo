@@ -167,8 +167,9 @@ export default class Fertilizer extends Component {
             //await console.log(this.validateForm())
         }else{
             if(this.validateForm()){
-                const status = await updateData(this.state.form, this.state._id)
-                if (status){
+                const fetchedData = await updateData(this.state.form, this.state._id)
+                if (fetchedData){
+                    await insertNutrient(this.state.form, fetchedData)
                     this.handleAlertDialog('actualizado')
                 }else{
                     this.errorDialog()

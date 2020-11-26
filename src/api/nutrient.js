@@ -33,7 +33,7 @@ const cookie = new Cookies()
 
    async function insertData(values, key){
       try {
-         console.log(values)
+         //console.log(values)
          const {data} = await axios.post(`${url}${key}`, values, {
             headers: {
                'Authorization' :  `Bearer ${cookie.get('token')}`
