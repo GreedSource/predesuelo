@@ -40,14 +40,15 @@ export class Sidebar extends Component {
 					<li className="has-sub">
 						<a href="#!">
 					        <b className="caret"></b>
-						    <i className="fa fa-th-large"></i>
-						    <span>Sample</span>
+						    <i className="fa fa-tasks"></i>
+						    <span>Cruds</span>
 					    </a>
 						<ul className="sub-menu">
-						    <li><a href="/sample">Lista</a></li>
+						    <li><a href="/sample">Samples</a></li>
+							<li><a href="/fertilizer">Fertilizers</a></li>
 						</ul>
 					</li>
-					<li><a href="covid-tracker"><i className="fa fa-calendar"></i> <span>CovidTracker</span></a></li>					
+					<li><a href="covid-tracker"><i className="fa fa-bars"></i> <span>CovidTracker</span></a></li>					
 					
 					<li><a href="#!" className="sidebar-minify-btn" data-click="sidebar-minify"><i className="fa fa-angle-double-left"></i></a></li>
 			        

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { Add } from '@material-ui/icons'
+import { Add, Edit, Delete } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -9,7 +9,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function SimpleButton({ handleOpen }) {
+export {
+    EditButton,
+    DeleteButton,
+    SimpleButton
+}
+
+function SimpleButton({ handleOpen }) {
 const classes = useStyles();
   return (
     <div>
@@ -22,6 +28,43 @@ const classes = useStyles();
             pb={500}
         >
             Add
+        </Button>
+    </div>
+  );
+}
+
+function EditButton({ handleOpen, _id }) {
+    const classes = useStyles();
+  return (
+    <div>
+        <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            endIcon={<Edit/>}
+            onClick={() => handleOpen(_id)}
+            pb={500}
+        >
+            Edit
+        </Button>
+    </div>
+  );
+}
+
+
+function DeleteButton({ confirmDialog, _id }) {
+    const classes = useStyles();
+  return (
+    <div>
+        <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            endIcon={<Delete/>}
+            onClick={() => confirmDialog(_id)}
+            pb={500}
+        >
+            Delete
         </Button>
     </div>
   );

@@ -28,7 +28,17 @@ const useStyles = makeStyles({
 });
 
 const appendChild = (data) => {
-    rows = data.map((r, i) => createData(r._id, r.crop.name, r.nitrogen, r.phosphorus, r.potassium, r.sulfur, r.calcium, r.magnesium))
+    rows = data.map((r, i) => 
+    createData(
+      r._id, 
+      r.name, 
+      r.nutrient ? r.nutrient.nitrogen : null, 
+      r.nutrient ? r.nutrient.phosphorus : null, 
+      r.nutrient ? r.nutrient.potassium : null, 
+      r.nutrient ? r.nutrient.sulfur : null,
+      r.nutrient ? r.nutrient.calcium : null, 
+      r.nutrient ? r.nutrient.magnesium : null
+    ))
 }
 
 export default function StickyHeadTable({data, handleOpen, confirmDialog}) {

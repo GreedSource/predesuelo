@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Layout from '../Layout';
 import Cookies from 'universal-cookie'
-import {fetchSamples, insertData, updateData, deleteRecord} from '../../api/samples'
-import {fetchCrops} from '../../api/crop'
+import {fetchData, insertData, updateData, deleteRecord } from '../../api/fertilizer'
+import {insertData as insertNutrient} from '../../api/nutrient'
 import StickyHeadTable from './tb'
 import SimpleModal from './modal'
 import {SimpleButton} from './button'
@@ -10,13 +10,12 @@ import swal from 'sweetalert'
 const cookie = new Cookies()
 
 
-export default class Sample extends Component {
+export default class Fertilizer extends Component {
     state = {
-        samples: [],
-        crops: [],
+        fertilizers: [],
         _id: '',
         form: {
-            crop : '',
+            name : '',
             nitrogen: '', 
             phosphorus: '', 
             potassium : '', 
@@ -34,7 +33,7 @@ export default class Sample extends Component {
             await this.handleEdit(_id)
         }else{
             const form = {
-                crop: null, 
+                name: '', 
                 nitrogen: null, 
                 phosphorus: null, 
                 potassium: null, 
@@ -105,18 +104,18 @@ export default class Sample extends Component {
     }
 
     handleEdit = async (_id) => {
-        const sample = await this.state.samples.find(i => i._id === _id)
-        if (sample){
+        const fertilizer = await this.state.fertilizers.find(i => i._id === _id)
+        if (fertilizer){
             const form = {
-                crop: sample.crop._id, 
-                nitrogen: sample.nitrogen, 
-                phosphorus: sample.phosphorus, 
-                potassium: sample.potassium, 
-                sulfur: sample.sulfur, 
-                calcium: sample.calcium, 
-                magnesium: sample.magnesium,
+                name: fertilizer.name, 
+                nitrogen: fertilizer.nutrient ? fertilizer.nutrient.nitrogen : null, 
+                phosphorus: fertilizer.nutrient ? fertilizer.nutrient.phosphorus : null, 
+                potassium: fertilizer.nutrient ? fertilizer.nutrient.potassium : null, 
+                sulfur: fertilizer.nutrient ? fertilizer.nutrient.sulfur : null, 
+                calcium: fertilizer.nutrient ? fertilizer.nutrient.calcium : null, 
+                magnesium: fertilizer.nutrient ? fertilizer.nutrient.magnesium : null,
             }
-            await this.setState({_id: sample._id})
+            await this.setState({_id: fertilizer._id})
             await this.setState({form: form})
             //console.log(this.state.form)
         }
@@ -141,23 +140,23 @@ export default class Sample extends Component {
         if (!cookie.get('id')){
             window.location.href = './'
         }
-        const fetchedCrops = await fetchCrops();
-        this.setState({crops: fetchedCrops})
         this.tableUpdate()
-        //console.log(fetchedSamples)
+        //console.log(fetchedfertilizers)
     }
 
     async tableUpdate(){
-        const fetchedSamples = await fetchSamples();
-        this.setState({samples: fetchedSamples})
+        const fetchedfertilizers = await fetchData();
+        this.setState({fertilizers: fetchedfertilizers})
     }
 
 
     dataEntry =  async () => {
         if(!this.state._id){
             if(this.validateForm()){
-                const status = await insertData(this.state.form)
-                if (status){
+                const name = {name: this.state.form.name}
+                const fetchedData = await insertData(name)
+                if (fetchedData){
+                    await insertNutrient(this.state.form, fetchedData.id)
                     this.handleAlertDialog('añadido')
                 }else{
                     this.errorDialog()
@@ -187,7 +186,6 @@ export default class Sample extends Component {
         let valid = true
         Object.entries(data).every(([key, value]) => {
             if(value || value === 0){
-                //console.log(`${key}: ${value}`)
                 return true
             }else{
                 valid = false
@@ -200,14 +198,14 @@ export default class Sample extends Component {
     render() {
         const view = (
             <div>
-                <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} crops={this.state.crops} open={this.state.open} handleClose={this.handleClose}/>
+                <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} open={this.state.open} handleClose={this.handleClose}/>
                 <SimpleButton handleOpen={this.handleOpen} />
-                <StickyHeadTable data={this.state.samples} handleChange={this.handleChange} crops={this.state.crops} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
+                <StickyHeadTable data={this.state.fertilizers} handleChange={this.handleChange} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
             </div>
         )
         return (
             <div>
-                <Layout component={view} title={`Samples list`}></Layout>
+                <Layout component={view} title={`Fertilizers list`}></Layout>
             </div>
         )
     }

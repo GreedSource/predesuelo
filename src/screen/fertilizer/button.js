@@ -1,19 +1,37 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { Edit, Delete } from '@material-ui/icons'
+import { Add, Edit, Delete } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        margin: theme.spacing(1),
-        width: '100%'
+        margin: theme.spacing(1)
     }
 }));
+
 export {
     EditButton,
-    DeleteButton
+    DeleteButton,
+    SimpleButton
 }
 
+function SimpleButton({ handleOpen }) {
+const classes = useStyles();
+  return (
+    <div>
+        <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            endIcon={<Add/>}
+            onClick={() => handleOpen(null)}
+            pb={500}
+        >
+            Add
+        </Button>
+    </div>
+  );
+}
 
 function EditButton({ handleOpen, _id }) {
     const classes = useStyles();
