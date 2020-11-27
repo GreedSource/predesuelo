@@ -5,11 +5,11 @@ const cookies = new Cookies()
 export class Header extends Component {
 
 	logout = () => {
-		cookies.remove('id')
-		cookies.remove('name')
-		cookies.remove('username')
-		cookies.remove('token')
-		cookies.remove('role')
+		cookies.remove('id', {path:'/'})
+		cookies.remove('name', {path:'/'})
+		cookies.remove('username', {path:'/'})
+		cookies.remove('token', {path:'/'})
+		cookies.remove('role', {path:'/'})
 		window.location.href = '/'
 	}
 
