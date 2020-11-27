@@ -44,13 +44,12 @@ export class Dashboard extends Component {
     render() {
         const view = (
             <div className={styles.container}>
-                
                 <CropPicker handleCropChange={this.handleCropChange}/>
                 <CropChart data={this.state.datos} />
             </div>
         )
         return (
-            <Layout component={view} title={this.props.title}></Layout>
+            <Layout component={view} title={'Dashboard'}></Layout>
         )
     }
 }

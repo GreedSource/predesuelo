@@ -13,7 +13,8 @@ const cookie = new Cookies()
       fetchSamples,
       insertData,
       updateData,
-      deleteRecord
+      deleteRecord,
+      fetchResult
    }
 
 // ####################################################################################################################################
@@ -28,6 +29,21 @@ const cookie = new Cookies()
          })
 
          return data.sample
+      } catch (error) {
+         console.log(error)
+      }
+   }
+
+   async function fetchResult(result){ // ===============================================================================
+    
+      try {
+         const {data} = await axios.get(`${url}result/${result}`, {
+             headers: {
+                'Authorization' :  `Bearer ${cookie.get('token')}`
+             }
+         })
+
+         return data
       } catch (error) {
          console.log(error)
       }

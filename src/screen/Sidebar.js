@@ -27,7 +27,7 @@ export class Sidebar extends Component {
 						<a href="#!" data-toggle="nav-profile">
 							<div className="cover with-shadow"></div>
 							<div className="image">
-								<img src="./assets/img/user/user-13.jpg" alt="" />
+								<img src={process.env.PUBLIC_URL + "/assets/img/user/user-13.jpg"} alt="" />
 							</div>
 							<div className="info">
 								{cookie.get('name')}
@@ -39,7 +39,7 @@ export class Sidebar extends Component {
 				</ul>
 				<ul className="nav">
 					<li className="nav-header">Navigation</li>
-					<li><a href="/dashboard"><i className="fa fa-th-large"></i> <span>Dashboard</span></a></li>
+					
 					<li><a href="/sample"><i className="fa fa-indent"></i> <span>Samples</span></a></li>
 					{cookie.get('role') === 'true' ? cruds : ''}
 					<li><a href="/covid-tracker"><i className="fa fa-bars"></i> <span>CovidTracker</span></a></li>					
@@ -47,11 +47,11 @@ export class Sidebar extends Component {
 					<li><a href="#!" className="sidebar-minify-btn" data-click="sidebar-minify"><i className="fa fa-angle-double-left"></i></a></li>
 			        
 				</ul>
-				
 			</div>
 			
 		</div>
-        //<div className="sidebar-bg"></div>
+		//<div className="sidebar-bg"></div>
+		//<li><a href="/dashboard"><i className="fa fa-th-large"></i> <span>Dashboard</span></a></li>
         )
     }
 }

@@ -38,7 +38,7 @@ export class CovidTracker extends Component {
         );
          
         return (
-            <Layout component={covid_tracker} title={this.props.title} />
+            <Layout component={covid_tracker} title={'Covid Tracker'} />
         )
     }
 }

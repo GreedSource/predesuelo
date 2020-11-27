@@ -6,5 +6,6 @@
 
    export {default as CropChart} from './CropChart/CropChart'
    export {default as CropPicker} from './CropPicker/CropPicker'
+   export {default as SampleChart} from './Sample/Chart'
 
 // ####################################################################################################################################

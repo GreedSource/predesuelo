@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { Add, Edit, Delete } from '@material-ui/icons'
+import { Add, Edit, Delete, BarChart } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -12,11 +12,12 @@ const useStyles = makeStyles((theme) => ({
 export {
     EditButton,
     DeleteButton,
-    SimpleButton
+    SimpleButton,
+    DefaultButton
 }
 
 function SimpleButton({ handleOpen }) {
-const classes = useStyles();
+    const classes = useStyles();
   return (
     <div>
         <Button
@@ -65,6 +66,24 @@ function DeleteButton({ confirmDialog, _id }) {
             pb={500}
         >
             Delete
+        </Button>
+    </div>
+  );
+}
+
+function DefaultButton({ _id }) {
+    const classes = useStyles();
+  return (
+    <div>
+        <Button
+            variant="contained"
+            color="default"
+            className={classes.button}
+            endIcon={<BarChart/>}
+            onClick={() => window.location.href = `./sample/${_id}`}
+            pb={500}
+        >
+            Analize
         </Button>
     </div>
   );

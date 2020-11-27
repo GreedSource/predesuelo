@@ -36,7 +36,7 @@ class Login extends Component {
 
     componentDidMount(){
         if (cookies.get('id')){
-            window.location.href = './dashboard'
+            window.location.href = './sample'
         }
     }
 

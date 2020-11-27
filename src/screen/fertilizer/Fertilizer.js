@@ -141,7 +141,7 @@ export default class Fertilizer extends Component {
             window.location.href = './'
         }else{
             if (cookie.get('role') !== 'true'){
-                window.location.href = './dashboard'
+                window.location.href = './sample'
             }
         }
         this.tableUpdate()

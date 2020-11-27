@@ -24,7 +24,8 @@ export default class Sample extends Component {
             calcium : '', 
             magnesium: ''
         },
-        open: false
+        open: false,
+        show: true
     }
 
     handleOpen = async (_id) => {
@@ -203,6 +204,7 @@ export default class Sample extends Component {
                 <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} crops={this.state.crops} open={this.state.open} handleClose={this.handleClose}/>
                 <SimpleButton handleOpen={this.handleOpen} />
                 <StickyHeadTable data={this.state.samples} handleChange={this.handleChange} crops={this.state.crops} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
+                
             </div>
         )
         return (

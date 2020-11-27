@@ -27,7 +27,8 @@ export class Header extends Component {
 				<ul className="navbar-nav navbar-right">
 					<li className="dropdown navbar-user">
 					<a href="#!" className="dropdown-toggle" data-toggle="dropdown">
-						<img src="./assets/img/user/user-13.jpg" alt="User" /> 
+
+						<img src={process.env.PUBLIC_URL + "/assets/img/user/user-13.jpg"} alt="" />
 						<span className="d-none d-md-inline">{cookies.get('name')}</span> <b className="caret" />
 					</a>
 					<div className="dropdown-menu dropdown-menu-right">

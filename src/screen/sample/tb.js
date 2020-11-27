@@ -8,7 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import {EditButton, DeleteButton} from './button'
+import {EditButton, DeleteButton, DefaultButton} from './button'
 
 
 function createData(_id, name, nitrogen, phosphorus, potassium, sulfur, calcium, magnesium) {
@@ -61,6 +61,7 @@ export default function StickyHeadTable({data, handleOpen, confirmDialog}) {
                 <TableCell align="right">Magnesio&nbsp;(g)</TableCell>
                 <TableCell align="right">Opciones</TableCell>
                 <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -70,23 +71,26 @@ export default function StickyHeadTable({data, handleOpen, confirmDialog}) {
                     <TableCell component="th" scope="row">
                         {row.name}
                     </TableCell>
-                    <TableCell style={{ width: 200 }} align="right">
+                    <TableCell style={{ width: 150 }} align="right">
                         {row.nitrogen}
                     </TableCell>
-                    <TableCell style={{ width: 200 }} align="right">
+                    <TableCell style={{ width: 150 }} align="right">
                         {row.phosphorus}
                     </TableCell>
-                    <TableCell style={{ width: 200 }} align="right">
+                    <TableCell style={{ width: 150 }} align="right">
                         {row.potassium}
                     </TableCell>
-                    <TableCell style={{ width: 200 }} align="right">
+                    <TableCell style={{ width: 150 }} align="right">
                         {row.sulfur}
                     </TableCell>
-                    <TableCell style={{ width: 200 }} align="right">
+                    <TableCell style={{ width: 150 }} align="right">
                         {row.calcium}
                     </TableCell>
-                    <TableCell style={{ width: 200 }} align="right">
+                    <TableCell style={{ width: 150 }} align="right">
                         {row.magnesium}
+                    </TableCell>
+                    <TableCell style={{ width: 150 }} align="right">
+                      <DefaultButton _id={row._id}/>
                     </TableCell>
                     <TableCell style={{ width: 150 }} align="right">
                         <EditButton handleOpen={handleOpen} _id={row._id} />
