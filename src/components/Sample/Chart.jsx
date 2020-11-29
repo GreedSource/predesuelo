@@ -52,12 +52,12 @@
                      labels: Object.keys(data),
                      datasets: [
                         {
-                           label: "faltante",
+                           label: "Faltante",
                            backgroundColor: "#ffc213",
                            data: dataSet.faltante
                         },
                         {
-                           label: "recomendado",
+                           label: "Recomendado",
                            backgroundColor: "#8bc53f",
                            data: dataSet.recomendado
                         }
