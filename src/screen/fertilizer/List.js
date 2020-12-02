@@ -24,6 +24,9 @@ const useStyles = makeStyles({
   container: {
     maxHeight: 500,
   },
+  label: {
+    "text-align": "center",
+  }
 });
 
 const appendChild = (data) => {
@@ -59,62 +62,67 @@ export default function List({data}) {
 
   const List = (
     data ? (
-        <Paper className={classes.root}>
-            <TableContainer className={classes.container}>
-                <Table stickyHeader aria-label="sticky table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell align="right">Nitrogeno</TableCell>
-                        <TableCell align="right">Fosforo&nbsp;(g)</TableCell>
-                        <TableCell align="right">Potasio&nbsp;(g)</TableCell>
-                        <TableCell align="right">Sulfuro&nbsp;(g)</TableCell>
-                        <TableCell align="right">Calcio&nbsp;(g)</TableCell>
-                        <TableCell align="right">Magnesio&nbsp;(g)</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    return (
-                        <TableRow key={row._id}>
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell style={{ width: 200 }} align="right">
-                                {row.nitrogen}
-                            </TableCell>
-                            <TableCell style={{ width: 200 }} align="right">
-                                {row.phosphorus}
-                            </TableCell>
-                            <TableCell style={{ width: 200 }} align="right">
-                                {row.potassium}
-                            </TableCell>
-                            <TableCell style={{ width: 200 }} align="right">
-                                {row.sulfur}
-                            </TableCell>
-                            <TableCell style={{ width: 200 }} align="right">
-                                {row.calcium}
-                            </TableCell>
-                            <TableCell style={{ width: 200 }} align="right">
-                                {row.magnesium}
-                            </TableCell>
+        <div>
+            <br/>
+            <h2 className={classes.label}>Lista de Fertilizantes recomendados</h2>
+            <br />
+            <Paper className={classes.root}>
+                <TableContainer className={classes.container}>
+                    <Table stickyHeader aria-label="sticky table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Name</TableCell>
+                            <TableCell align="right">Nitrogeno</TableCell>
+                            <TableCell align="right">Fosforo&nbsp;(g)</TableCell>
+                            <TableCell align="right">Potasio&nbsp;(g)</TableCell>
+                            <TableCell align="right">Sulfuro&nbsp;(g)</TableCell>
+                            <TableCell align="right">Calcio&nbsp;(g)</TableCell>
+                            <TableCell align="right">Magnesio&nbsp;(g)</TableCell>
                         </TableRow>
-                    );
-                    })}
-                </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[5, 10, 25, 100]}
-                component="div"
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-            />
+                    </TableHead>
+                    <TableBody>
+                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                        return (
+                            <TableRow key={row._id}>
+                                <TableCell component="th" scope="row">
+                                    {row.name}
+                                </TableCell>
+                                <TableCell style={{ width: 200 }} align="right">
+                                    {row.nitrogen}
+                                </TableCell>
+                                <TableCell style={{ width: 200 }} align="right">
+                                    {row.phosphorus}
+                                </TableCell>
+                                <TableCell style={{ width: 200 }} align="right">
+                                    {row.potassium}
+                                </TableCell>
+                                <TableCell style={{ width: 200 }} align="right">
+                                    {row.sulfur}
+                                </TableCell>
+                                <TableCell style={{ width: 200 }} align="right">
+                                    {row.calcium}
+                                </TableCell>
+                                <TableCell style={{ width: 200 }} align="right">
+                                    {row.magnesium}
+                                </TableCell>
+                            </TableRow>
+                        );
+                        })}
+                    </TableBody>
+                    </Table>
+                </TableContainer>
+                <TablePagination
+                    rowsPerPageOptions={[5, 10, 25, 100]}
+                    component="div"
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onChangePage={handleChangePage}
+                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                />
             </Paper>
-    ) : null
+        </div>
+     ) : null
   )
 
   return (

@@ -38,7 +38,7 @@ export class Chart extends Component {
             </div>
         )
         return (
-            <Layout component={view} title={'Sample Chart'} />
+            <Layout component={view} title={'Resultados del análisis de la muestra'} />
         )
     }
 }

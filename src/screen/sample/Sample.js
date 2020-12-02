@@ -209,7 +209,7 @@ export default class Sample extends Component {
         )
         return (
             <div>
-                <Layout component={view} title={`Samples list`}></Layout>
+                <Layout component={view} title={`Listado de muestras`}></Layout>
             </div>
         )
     }

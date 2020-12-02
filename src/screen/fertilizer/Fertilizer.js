@@ -210,7 +210,7 @@ export default class Fertilizer extends Component {
         )
         return (
             <div>
-                <Layout component={view} title={`Fertilizers list`}></Layout>
+                <Layout component={view} title={`Listado de fertilizantes`}></Layout>
             </div>
         )
     }

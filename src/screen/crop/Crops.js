@@ -210,7 +210,7 @@ export default class Crops extends Component {
         )
         return (
             <div>
-                <Layout component={view} title={`Crops list`}></Layout>
+                <Layout component={view} title={`Listado de cultivos`}></Layout>
             </div>
         )
     }
