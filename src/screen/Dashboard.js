@@ -42,9 +42,16 @@ export class Dashboard extends Component {
 
     render() {
         return (
-            <div className={styles.container}>
-                <CropPicker handleCropChange={this.handleCropChange}/>
-                <CropChart data={this.state.datos} />
+            <div>
+                <h1 className="page-header">Dashboard</h1>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className={styles.container}>
+                            <CropPicker handleCropChange={this.handleCropChange}/>
+                            <CropChart data={this.state.datos} />
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

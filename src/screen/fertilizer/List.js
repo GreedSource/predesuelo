@@ -23,6 +23,7 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 500,
+    minHeight: 320
   },
   label: {
     "text-align": "center",
@@ -60,11 +61,10 @@ export default function List({data}) {
     setPage(0);
   };
 
-  const List = (
+  return (
     data ? (
         <div>
-            <br/>
-            <h2 className={classes.label}>Lista de Fertilizantes recomendados</h2>
+            <h4 className={classes.label}>Lista de Fertilizantes recomendados</h4>
             <br />
             <Paper className={classes.root}>
                 <TableContainer className={classes.container}>
@@ -123,9 +123,5 @@ export default function List({data}) {
             </Paper>
         </div>
      ) : null
-  )
-
-  return (
-    List
   );
 }

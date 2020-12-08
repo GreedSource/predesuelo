@@ -28,11 +28,18 @@ export class CovidTracker extends Component {
     render() {
         const {data, country} = this.state;
         return (
-            <div className={styles.container}>
-                <img src={coronaImage} className="image" alt="covid19" />
-                <Cards data={data}/>
-                <CountryPicker handleCountryChange={this.handleCountryChange} />
-                <Chart data={data} country={country} />
+            <div>
+                <h1 className="page-header">CovidTracker</h1>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className={styles.container}>
+                            <img src={coronaImage} className="image" alt="covid19" />
+                            <Cards data={data}/>
+                            <CountryPicker handleCountryChange={this.handleCountryChange} />
+                            <Chart data={data} country={country} />
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

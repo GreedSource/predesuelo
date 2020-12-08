@@ -201,11 +201,18 @@ export default class Fertilizer extends Component {
     
     render() {
         return (
-            <div>
-                <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} open={this.state.open} handleClose={this.handleClose}/>
-                <SimpleButton handleOpen={this.handleOpen} />
-                <StickyHeadTable data={this.state.fertilizers} handleChange={this.handleChange} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
-            </div>
+            (!cookie.get('id')) ? (
+                <div>
+                    <h1 className="page-header">Fertilizantes</h1>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} open={this.state.open} handleClose={this.handleClose}/>
+                            <SimpleButton handleOpen={this.handleOpen} />
+                            <StickyHeadTable data={this.state.fertilizers} handleChange={this.handleChange} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} /> 
+                        </div>
+                    </div>
+                </div>
+            ) : null
         )
     }
 }

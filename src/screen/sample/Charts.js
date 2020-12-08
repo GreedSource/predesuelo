@@ -14,7 +14,7 @@ export class Chart extends Component {
     }
     async componentDidMount() {
         if (!cookie.get('id')){
-            window.location.href = '../'
+            window.location.href = '/dashboard'
         }
         const fetchedResults = await fetchResult(this.props.match.params.id)
         if(fetchedResults){
@@ -25,16 +25,23 @@ export class Chart extends Component {
                 this.setState({show: true})
             }
         }else{
-            window.location.href = '../sample'
+            return window.location.href = '/dashboard'
         }
         
     }
     render() {
         return (
-            <div>
-                <SampleChart data={this.state.data} />
-                <List data={this.state.vdata} />
-            </div>
+            this.state.data ? (
+                <div>
+                    <h1 className="page-header">Resultado de la muestra</h1>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <SampleChart data={this.state.data} />
+                            <List data={this.state.vdata} />
+                        </div>
+                    </div>
+                </div>
+            ) : null
         )
     }
 }

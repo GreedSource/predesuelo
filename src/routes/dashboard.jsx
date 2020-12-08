@@ -25,18 +25,13 @@ class Dashboard extends Component {
                 <Sidebar match={match}/>
                 <div className="sidebar-bg"></div>
                 <div className="content" id='content'>
-                    <h1 className="page-header">Admin page</h1>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <Switch>
-                                <Route exact path={`${match.path}/covid-tracker`} component={CovidTracker} />
-                                <Route exact path={`${match.path}/`} component={Sample} />
-                                <Route exact path={`${match.path}/crop`} component={Crops} />
-                                <Route exact path={`${match.path}/fertilizer`} component={Fertilizer} />
-                                <Route exact path={`${match.path}/:id`} component={Chart} />
-                            </Switch>
-                        </div>
-                    </div>
+                    <Switch>
+                        <Route exact path={`${match.path}/covid-tracker`} component={CovidTracker} />
+                        <Route exact path={`${match.path}/`} component={Sample} />
+                        <Route exact path={`${match.path}/crop`} component={Crops} />
+                        <Route exact path={`${match.path}/fertilizer`} component={Fertilizer} />
+                        <Route exact path={`${match.path}/:id`} component={Chart} />
+                    </Switch>
                 </div>
                 
                 <a href="#!" className="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i className="fa fa-angle-up"></i></a>

@@ -200,9 +200,14 @@ export default class Sample extends Component {
         
         return (
             <div>
-                <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} crops={this.state.crops} open={this.state.open} handleClose={this.handleClose}/>
-                <SimpleButton handleOpen={this.handleOpen} />
-                <StickyHeadTable data={this.state.samples} history={this.props.history} handleChange={this.handleChange} crops={this.state.crops} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
+                <h1 className="page-header">Samples</h1>
+                <div className="row">
+                    <div className="col-md-12">
+                        <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} crops={this.state.crops} open={this.state.open} handleClose={this.handleClose}/>
+                        <SimpleButton handleOpen={this.handleOpen} />
+                        <StickyHeadTable data={this.state.samples} history={this.props.history} handleChange={this.handleChange} crops={this.state.crops} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
+                    </div>
+                </div>
             </div>
         )
     }
