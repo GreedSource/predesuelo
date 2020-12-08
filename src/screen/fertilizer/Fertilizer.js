@@ -201,7 +201,7 @@ export default class Fertilizer extends Component {
     
     render() {
         return (
-            (!cookie.get('id')) ? (
+            (cookie.get('id')) ? (
                 <div>
                     <h1 className="page-header">Fertilizantes</h1>
                     <div className="row">

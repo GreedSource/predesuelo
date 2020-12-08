@@ -201,7 +201,7 @@ export default class Crops extends Component {
     
     render() {
         return (
-            (!cookie.get('id')) ? (
+            (cookie.get('id')) ? (
                 <div>
                     <h1 className="page-header">Cultivos</h1>
                     <div className="row">
