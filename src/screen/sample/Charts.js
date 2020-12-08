@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 //import Loading from '../Loading';
 import {SampleChart} from '../../components'
-import Layout from '../Layout';
 import { fetchResult } from '../../api/samples'
 import { fetchData } from '../../api/fertilizer'
 import Cookies from 'universal-cookie'
@@ -31,14 +30,11 @@ export class Chart extends Component {
         
     }
     render() {
-        const view = (
+        return (
             <div>
                 <SampleChart data={this.state.data} />
                 <List data={this.state.vdata} />
             </div>
-        )
-        return (
-            <Layout component={view} title={'Resultados del análisis de la muestra'} />
         )
     }
 }

@@ -71,20 +71,20 @@ function DeleteButton({ confirmDialog, _id }) {
   );
 }
 
-function DefaultButton({ _id }) {
+function DefaultButton(props) {
     const classes = useStyles();
-  return (
-    <div>
-        <Button
-            variant="contained"
-            color="default"
-            className={classes.button}
-            endIcon={<BarChart/>}
-            onClick={() => window.location.href = `./sample/${_id}`}
-            pb={500}
-        >
-            Analize
-        </Button>
-    </div>
-  );
+    return (
+        <div>
+            <Button
+                variant="contained"
+                color="default"
+                className={classes.button}
+                endIcon={<BarChart/>}
+                onClick={() => props.history.push(`/dashboard/${props._id}`) }
+                pb={500}
+            >
+                Analize
+            </Button>
+        </div>
+    );
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Layout from '../Layout';
 import Cookies from 'universal-cookie'
 import {fetchSamples, insertData, updateData, deleteRecord} from '../../api/samples'
 import {fetchCrops} from '../../api/crop'
@@ -140,12 +139,11 @@ export default class Sample extends Component {
 
     async componentDidMount() {
         if (!cookie.get('id')){
-            window.location.href = './'
+            window.location.href = '/'
         }
         const fetchedCrops = await fetchCrops();
         this.setState({crops: fetchedCrops})
         this.tableUpdate()
-        //console.log(fetchedSamples)
     }
 
     async tableUpdate(){
@@ -199,17 +197,12 @@ export default class Sample extends Component {
     }
     
     render() {
-        const view = (
+        
+        return (
             <div>
                 <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} crops={this.state.crops} open={this.state.open} handleClose={this.handleClose}/>
                 <SimpleButton handleOpen={this.handleOpen} />
-                <StickyHeadTable data={this.state.samples} handleChange={this.handleChange} crops={this.state.crops} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
-                
-            </div>
-        )
-        return (
-            <div>
-                <Layout component={view} title={`Listado de muestras`}></Layout>
+                <StickyHeadTable data={this.state.samples} history={this.props.history} handleChange={this.handleChange} crops={this.state.crops} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
             </div>
         )
     }

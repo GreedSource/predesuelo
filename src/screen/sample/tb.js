@@ -31,7 +31,7 @@ const appendChild = (data) => {
     rows = data.map((r, i) => createData(r._id, r.crop.name, r.nitrogen, r.phosphorus, r.potassium, r.sulfur, r.calcium, r.magnesium))
 }
 
-export default function StickyHeadTable({data, handleOpen, confirmDialog}) {
+export default function StickyHeadTable({data, handleOpen, confirmDialog, history}) {
   const classes = useStyles();
   appendChild(data)
   const [page, setPage] = React.useState(0);
@@ -90,7 +90,7 @@ export default function StickyHeadTable({data, handleOpen, confirmDialog}) {
                         {row.magnesium}
                     </TableCell>
                     <TableCell style={{ width: 150 }} align="right">
-                      <DefaultButton _id={row._id}/>
+                      <DefaultButton _id={row._id} history={history} />
                     </TableCell>
                     <TableCell style={{ width: 150 }} align="right">
                         <EditButton handleOpen={handleOpen} _id={row._id} />

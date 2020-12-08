@@ -4,11 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 // screens
 import Login from '../screen/auth/Login'
-//import Dashboard from '../screen/Dashboard'
-import CovidTracker from '../screen/CovidTracker'
-import {Sample, Chart} from '../screen/sample'
-import {Fertilizer} from '../screen/fertilizer'
-import {Crops} from '../screen/crop'
+import Dashboard from './dashboard'
 
 class Routes extends Component {
     render() {
@@ -19,12 +15,7 @@ class Routes extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={ Login } />
-                    
-                    <Route path="/covid-tracker" exact={true} component={CovidTracker} />
-                    <Route path="/sample" exact={true} component={Sample} />
-                    <Route path="/fertilizer" exact={true} component={Fertilizer} />
-                    <Route path="/crop" exact={true} component={Crops} />
-                    <Route path="/sample/:id" component={Chart} />
+                    <Route path="/dashboard" component = { Dashboard } />
                     <Route>{ error_404 }</Route>
                 </Switch>
             </BrowserRouter>

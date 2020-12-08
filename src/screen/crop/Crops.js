@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Layout from '../Layout';
 import Cookies from 'universal-cookie'
 import {fetchCrops as fetchData, insertData, updateData, deleteRecord } from '../../api/crop'
 import {insertData as insertNutrient} from '../../api/nutrient'
@@ -138,10 +137,10 @@ export default class Crops extends Component {
 
     async componentDidMount() {
         if (!cookie.get('id')){
-            window.location.href = './'
+            window.location.href = '/'
         }else{
             if (cookie.get('role') !== 'true'){
-                window.location.href = './sample'
+                this.props.history.push('./')
             }
         }
         this.tableUpdate()
@@ -201,16 +200,11 @@ export default class Crops extends Component {
     }
     
     render() {
-        const view = (
+        return (
             <div>
                 <SimpleModal data={this.state.form} handleChange={this.handleChange} dataEntry={this.dataEntry} open={this.state.open} handleClose={this.handleClose}/>
                 <SimpleButton handleOpen={this.handleOpen} />
                 <StickyHeadTable data={this.state.crops} handleChange={this.handleChange} form={this.state.form} handleOpen={this.handleOpen} confirmDialog={this.handleConfirmDialog} />
-            </div>
-        )
-        return (
-            <div>
-                <Layout component={view} title={`Listado de cultivos`}></Layout>
             </div>
         )
     }

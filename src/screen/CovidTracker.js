@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Layout from './Layout';
 import {Cards, Chart, CountryPicker} from '../components'
 import styles from '../App.modules.css'
 import {fetchData} from '../api'
@@ -28,17 +27,13 @@ export class CovidTracker extends Component {
     }
     render() {
         const {data, country} = this.state;
-        const covid_tracker = (
+        return (
             <div className={styles.container}>
                 <img src={coronaImage} className="image" alt="covid19" />
                 <Cards data={data}/>
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
                 <Chart data={data} country={country} />
             </div>
-        );
-         
-        return (
-            <Layout component={covid_tracker} title={'Covid Tracker'} />
         )
     }
 }
