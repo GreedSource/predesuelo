@@ -29,7 +29,7 @@ class Login extends Component {
             cookies.set('username', fetchedData.username, {path:'/'})
             cookies.set('token', fetchedData.token, {path:'/'})
             cookies.set('role', fetchedData.role, {path:'/'})
-            window.location.href = '/dashboard'
+            return window.location.href = '/dashboard'
         }else{
             console.log(0)
         }
@@ -37,7 +37,7 @@ class Login extends Component {
 
     componentDidMount(){
         if (cookies.get('id')){
-          window.location.href = '/dashboard'
+          return window.location.href = '/dashboard'
         }
     }
 

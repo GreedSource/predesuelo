@@ -15,7 +15,7 @@ export class CovidTracker extends Component {
     
     async componentDidMount(){
         if (!cookies.get('id')){
-            window.location.href = './'
+            return window.location.href = './'
         }
         const fetchedData = await fetchData();
         this.setState({data: fetchedData})

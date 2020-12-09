@@ -137,10 +137,10 @@ export default class Crops extends Component {
 
     async componentDidMount() {
         if (!cookie.get('id')){
-            window.location.href = '/'
+            return window.location.href = '/'
         }else{
             if (cookie.get('role') !== 'true'){
-                this.props.history.push('./')
+                return this.props.history.push('./')
             }
         }
         this.tableUpdate()

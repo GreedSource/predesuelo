@@ -139,7 +139,7 @@ export default class Sample extends Component {
 
     async componentDidMount() {
         if (!cookie.get('id')){
-            window.location.href = '/'
+            return window.location.href = '/'
         }
         const fetchedCrops = await fetchCrops();
         this.setState({crops: fetchedCrops})
@@ -186,7 +186,6 @@ export default class Sample extends Component {
         let valid = true
         Object.entries(data).every(([key, value]) => {
             if(value || value === 0){
-                //console.log(`${key}: ${value}`)
                 return true
             }else{
                 valid = false

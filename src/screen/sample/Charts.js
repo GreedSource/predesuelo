@@ -14,7 +14,7 @@ export class Chart extends Component {
     }
     async componentDidMount() {
         if (!cookie.get('id')){
-            window.location.href = '/dashboard'
+            return window.location.href = '/dashboard'
         }
         const fetchedResults = await fetchResult(this.props.match.params.id)
         if(fetchedResults){

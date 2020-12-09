@@ -18,7 +18,7 @@ export class Dashboard extends Component {
 
     async componentDidMount() {
         if (!cookie.get('id')){
-            window.location.href = './'
+            return window.location.href = './'
         }
         const fetchedCrops = await fetchSamples();
         this.setState({data: fetchedCrops})
