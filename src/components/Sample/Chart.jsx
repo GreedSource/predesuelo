@@ -37,7 +37,7 @@
 
    const Chart = ({data}) => {
       //console.log(Object.keys(data))
-      console.log(data)
+      //console.log(data)
       var dataSet = null;
       if (data){
          data = parseData(data)
